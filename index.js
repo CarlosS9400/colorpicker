@@ -78,6 +78,6 @@ darkModeBtn.addEventListener("click", function(){
   
 })
 
-sliderInput.addEventListener("change", function(){
+sliderInput.addEventListener("input", function(){
     document.getElementById("sliderValue").innerText=sliderInput.value
 })
