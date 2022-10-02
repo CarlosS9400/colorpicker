@@ -3,13 +3,12 @@ const colorInput = document.getElementById("color")
 const mobile = document.getElementById("mobile")
 const enjoy = document.getElementById("enjoy")
 const SliderOutput = document.getElementById("sliderValue")
-const sliderInput = document.getElementById("numColor")
-const modeInput = document.getElementById("mode")
 const numColorInput = document.getElementById("numColor")
+const modeInput = document.getElementById("mode")
 const colorSchemeBtn = document.getElementById("colorScheme-btn") 
 const darkModeBtn = document.getElementById("darkMode-btn")
 const colorOutput = document.getElementById("colorOutput")
-const colorContainer = document.getElementById("color-container")
+
 
 let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
@@ -44,9 +43,6 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
 
   })
   
-  function copyHex(value) {
-      console.log(value)
-  }
   
 darkModeBtn.addEventListener("click", function(){
     
@@ -60,7 +56,6 @@ darkModeBtn.addEventListener("click", function(){
         mobile.classList.add("invert")
         enjoy.classList.add("invert")
         
-        
         darkMode = true
         
     } else if (darkMode === true) {
@@ -71,13 +66,11 @@ darkModeBtn.addEventListener("click", function(){
         mobile.classList.remove("invert")
         enjoy.classList.remove("invert")
         
-        
-        
         darkMode = false
     }
   
 })
 
-sliderInput.addEventListener("input", function(){
-    document.getElementById("sliderValue").innerText=sliderInput.value
+numColorInput.addEventListener("input", function(){
+    SliderOutput.innerText=numColorInput.value
 })

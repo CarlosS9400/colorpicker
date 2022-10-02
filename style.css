@@ -13,8 +13,8 @@ body {
 #container {
 
     padding:1em;
-    margin: 3em auto;
-    min-height: 50%;
+    margin: 1.5em auto;
+    min-height: 100vh;
     border: 0.5em solid darkgrey;
 
 }
@@ -108,7 +108,7 @@ h4 {
 }
 
 .invert {
-    /* This value is the OPPOSITE color of our background */
+ 
     color: white; 
     mix-blend-mode: difference;
    
