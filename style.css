@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Alkalami', serif;
+    text-align: center;
+   
+}
+
+#container {
+
+    padding:1em;
+    margin: 3em auto;
+    min-height: 50%;
+    border: 0.5em solid darkgrey;
+
+}
+
+#color{
+    min-width: 150px;
+}
+
+#input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media(min-width: 700px){
+    #input {
+        flex-direction: row;
+    }
+}
+
+#colorScheme-btn, 
+#darkMode-btn{
+    max-width: 40%;
+    padding: 0.5em 1em 0.5em;
+    border-radius: 8%;
+    cursor:pointer;
+    overflow: hidden;
+    
+}
+
+#colorScheme-btn:hover,
+#darkMode-btn:hover {
+    font-weight: bold
+}
+
+#output {
+    min-height: 60vh;
+}
+
+#colorScheme-btn,
+#color,
+#numColor,
+#mode,
+#darkMode-btn, 
+h4 {
+    margin-bottom: 2em;
+}
+
+#sliderArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.dark {
+    background: black;
+}
+
+
+#color-container {
+    min-height: 15vh;
+    margin: 1em auto;
+    max-width: 80%; 
+}
+
+@media(min-width: 700px){
+    
+    #colorOutput {
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+    
+    #eachColorOutput {
+        
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 100%;
+    }
+    
+    #color-container {
+        overflow: hidden;
+        min-width: 100%; 
+        min-height: 40vh;
+    
+    }
+}
+
+.invert {
+    /* This value is the OPPOSITE color of our background */
+    color: white; 
+    mix-blend-mode: difference;
+   
+}
+
+
+
+
+
+
+
