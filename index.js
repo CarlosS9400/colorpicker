@@ -15,8 +15,8 @@ let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
   
   colorSchemeBtn.addEventListener("click", function(){
-
-  const hexValues = document.querySelectorAll('.hex-value');
+    darkModeBtn.disabled = false;
+    const hexValues = document.querySelectorAll('.hex-value');
     
     if (darkMode === true) {
 
@@ -31,9 +31,6 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
             hexValue.classList.remove('invert');
         }
     }
-
-    darkModeBtn.disabled = false;
-    
     
     let hexString = colorInput.value
     hexString = hexString.substring(1)
@@ -67,13 +64,10 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
 
   })
   
-  function copyHex(value) {
-      console.log(value)
-  }
-  
-darkModeBtn.addEventListener("click", function(){
+ 
+  darkModeBtn.addEventListener("click", function(){
 
-    const hexValues = document.querySelectorAll('.hex-value')
+    const hexValues = document.querySelectorAll('.hex-value');
 
     darkModeArea.classList.add("dark")
     
