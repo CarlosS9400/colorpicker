@@ -8,12 +8,14 @@ const numColorInput = document.getElementById("numColor")
 const colorSchemeBtn = document.getElementById("colorScheme-btn") 
 const darkModeBtn = document.getElementById("darkMode-btn")
 const colorOutput = document.getElementById("colorOutput")
-//const colorContainer = document.getElementById("color-container")
+const title = document.getElementById("title")
+const subTitle = document.getElementById("subTitle")
 
 let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
   
   colorSchemeBtn.addEventListener("click", function(){
+    darkModeBtn.disabled = false;
     
     let hexString = colorInput.value
     hexString = hexString.substring(1)
@@ -31,7 +33,7 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
             
             <div id="eachColorOutput">
                 <section id="${color.hex.value}" style="background-color: ${color.hex.value}">&nbsp</section>
-                <div id="${color.hex.value}" class="invert" style="color: red">${color.hex.value}</div>
+                <div class="hex-value" id="${color.hex.value}">${color.hex.value}</div>
             </div>
             `
            
@@ -52,7 +54,9 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
   }
   
 darkModeBtn.addEventListener("click", function(){
-    
+
+    const hexValues = document.querySelectorAll('.hex-value');
+
     darkModeArea.classList.add("dark")
     
     if (darkMode === false) {
@@ -61,6 +65,14 @@ darkModeBtn.addEventListener("click", function(){
         
         
         SliderOutput.classList.add("invert")
+        title.classList.add("invert")
+        subTitle.classList.add("invert")
+
+        for (const hexValue of hexValues) {
+            hexValue.classList.add('invert');
+        }
+       
+        
         
         darkMode = true
         
@@ -68,7 +80,17 @@ darkModeBtn.addEventListener("click", function(){
         darkModeArea.classList.remove("dark")
         darkModeBtn.innerText = "Dark Mode"
         
-        SliderOutput.classList.add("invert")
+        SliderOutput.classList.remove("invert")
+        title.classList.remove("invert")
+        subTitle.classList.remove("invert")
+
+        for (const hexValue of hexValues) {
+            hexValue.classList.remove('invert');
+        }
+        
+
+        
+        
         
         darkMode = false
     }
