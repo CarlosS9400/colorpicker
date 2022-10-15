@@ -15,7 +15,25 @@ let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
   
   colorSchemeBtn.addEventListener("click", function(){
+
+  const hexValues = document.querySelectorAll('.hex-value');
+    
+    if (darkMode === true) {
+
+        darkModeArea.classList.remove("dark")
+        darkModeBtn.innerText = "Dark Mode"
+        
+        SliderOutput.classList.remove("invert")
+        title.classList.remove("invert")
+        subTitle.classList.remove("invert")
+
+        for (const hexValue of hexValues) {
+            hexValue.classList.remove('invert');
+        }
+    }
+
     darkModeBtn.disabled = false;
+    
     
     let hexString = colorInput.value
     hexString = hexString.substring(1)
@@ -55,7 +73,7 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
   
 darkModeBtn.addEventListener("click", function(){
 
-    const hexValues = document.querySelectorAll('.hex-value');
+    const hexValues = document.querySelectorAll('.hex-value')
 
     darkModeArea.classList.add("dark")
     
