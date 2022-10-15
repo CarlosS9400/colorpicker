@@ -83,7 +83,10 @@ sliderInput.addEventListener("input", function(){
 colorOutput.addEventListener("click", function(e){
    
    let copyText = e.target.id
-   navigator.clipboard.writeText(copyText)
-   alert(`Hex copied: ${copyText}`)
+   if(copyText.includes("#")){
+
+    navigator.clipboard.writeText(copyText)
+    alert(`Hex copied: ${copyText}`)
+   }
   
 })
