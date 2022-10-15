@@ -1,14 +1,14 @@
+
 const darkModeArea = document.getElementById("container")
 const colorInput = document.getElementById("color")
-const mobile = document.getElementById("mobile")
-const enjoy = document.getElementById("enjoy")
 const SliderOutput = document.getElementById("sliderValue")
-const numColorInput = document.getElementById("numColor")
+const sliderInput = document.getElementById("numColor")
 const modeInput = document.getElementById("mode")
+const numColorInput = document.getElementById("numColor")
 const colorSchemeBtn = document.getElementById("colorScheme-btn") 
 const darkModeBtn = document.getElementById("darkMode-btn")
 const colorOutput = document.getElementById("colorOutput")
-
+//const colorContainer = document.getElementById("color-container")
 
 let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
@@ -30,19 +30,26 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
             HTML += `
             
             <div id="eachColorOutput">
-                <div id="color-container" style="background-color: ${color.hex.value}">&nbsp</div>
-                <div id="hex-container" style="color: red">${color.hex.value}</div>
+                <section id="${color.hex.value}" style="background-color: ${color.hex.value}">&nbsp</section>
+                <div id="${color.hex.value}" class="invert" style="color: red">${color.hex.value}</div>
             </div>
             `
            
           }
+         
           
           colorOutput.innerHTML=HTML
           
          })
+            
+
+           
 
   })
   
+  function copyHex(value) {
+      console.log(value)
+  }
   
 darkModeBtn.addEventListener("click", function(){
     
@@ -52,9 +59,8 @@ darkModeBtn.addEventListener("click", function(){
         darkModeArea.classList.add("dark")
         darkModeBtn.innerText = "Light Mode"
         
+        
         SliderOutput.classList.add("invert")
-        mobile.classList.add("invert")
-        enjoy.classList.add("invert")
         
         darkMode = true
         
@@ -62,15 +68,22 @@ darkModeBtn.addEventListener("click", function(){
         darkModeArea.classList.remove("dark")
         darkModeBtn.innerText = "Dark Mode"
         
-        SliderOutput.classList.remove("invert")
-        mobile.classList.remove("invert")
-        enjoy.classList.remove("invert")
+        SliderOutput.classList.add("invert")
         
         darkMode = false
     }
   
 })
 
-numColorInput.addEventListener("input", function(){
-    SliderOutput.innerText=numColorInput.value
+sliderInput.addEventListener("input", function(){
+    document.getElementById("sliderValue").innerText=sliderInput.value
+})
+
+
+colorOutput.addEventListener("click", function(e){
+   
+   let copyText = e.target.id
+   navigator.clipboard.writeText(copyText)
+   alert(`Hex copied: ${copyText}`)
+  
 })
