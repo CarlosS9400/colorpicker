@@ -14,24 +14,15 @@ const subTitle = document.getElementById("subTitle")
 let darkMode = false
 let baseUrl = "https://www.thecolorapi.com/scheme"
   
-  colorSchemeBtn.addEventListener("click", function(){
-    darkModeBtn.disabled = false;
-    const hexValues = document.querySelectorAll('.hex-value');
+colorSchemeBtn.addEventListener("click", function(){
+    console.log(darkMode)
     
-    if (darkMode === true) {
+    if(darkMode === true) {
 
-        darkModeArea.classList.remove("dark")
-        darkModeBtn.innerText = "Dark Mode"
-        
-        SliderOutput.classList.remove("invert")
-        title.classList.remove("invert")
-        subTitle.classList.remove("invert")
-
-        for (const hexValue of hexValues) {
-            hexValue.classList.remove('invert');
-        }
+      colorOutput.classList.add("invert")
+    
     }
-    
+
     let hexString = colorInput.value
     hexString = hexString.substring(1)
   
@@ -58,16 +49,12 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
           colorOutput.innerHTML=HTML
           
          })
-            
-
-           
-
-  })
+ })
   
  
   darkModeBtn.addEventListener("click", function(){
 
-    const hexValues = document.querySelectorAll('.hex-value');
+    
 
     darkModeArea.classList.add("dark")
     
@@ -79,12 +66,7 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
         SliderOutput.classList.add("invert")
         title.classList.add("invert")
         subTitle.classList.add("invert")
-
-        for (const hexValue of hexValues) {
-            hexValue.classList.add('invert');
-        }
-       
-        
+        colorOutput.classList.add("invert")
         
         darkMode = true
         
@@ -95,14 +77,7 @@ let baseUrl = "https://www.thecolorapi.com/scheme"
         SliderOutput.classList.remove("invert")
         title.classList.remove("invert")
         subTitle.classList.remove("invert")
-
-        for (const hexValue of hexValues) {
-            hexValue.classList.remove('invert');
-        }
-        
-
-        
-        
+        colorOutput.classList.remove("invert")
         
         darkMode = false
     }
